@@ -34,7 +34,7 @@ This command will install the `pandas` library, which is used for data manipulat
 3. Run the script using the following command:
 
 ```bash
-python main.py
+python3 main.py
 ```
 
 The script will execute the main pipeline function, process the recipe data, calculate difficulty levels, and generate a CSV file named `filtered_recipes.csv` containing the processed data.
