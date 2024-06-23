@@ -1,5 +1,14 @@
-## Prerequisites
-- Python 3.11.4 
-- pandas 2.2.2 
-- re (Regular Expression) module 2.2.1
-- os version: 3.11.4
+Package         Version
+--------------- -----------
+cffi            1.15.1
+docutils        0.20.1
+numpy           2.0.0
+pandas          2.2.2
+pip             23.0.1
+pycparser       2.21
+python-dateutil 2.9.0.post0
+pytz            2024.1
+setuptools      67.6.1
+six             1.16.0
+tzdata          2024.1
+wheel           0.40.0
