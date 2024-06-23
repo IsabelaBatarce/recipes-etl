@@ -79,15 +79,13 @@ This function uses pandas (`pd`) to load data from a JSON file into a DataFrame 
 ```python
 def clean_duration(duration_str):
     try:
-        pd.Timedelta(duration_str)
-        return duration_str
+        return pd.to_timedelta(duration_str)  
     except ValueError:
         cleaned_str = re.sub(r'[^PYMDTHS\d]', '', duration_str)
         try:
-            pd.Timedelta(cleaned_str)
-            return cleaned_str
+            return pd.to_timedelta(cleaned_str)  
         except ValueError:
-            return None
+            return None  
 ```
 
 The `clean_duration` function is used to clean and normalize ISO 8601 duration strings, which represent time durations in a standardized format. The function takes an input duration string (`duration_str`) and attempts to parse it using `pd.Timedelta`. If the parsing succeeds, it returns the original string (`duration_str`), indicating that it's already in a valid format. If parsing fails due to a `ValueError`, the function cleans up the string by removing any characters that are not part of the ISO 8601 format using regular expressions (`re`), specifically `re.sub(r'[^PYMDTHS\d]', '', duration_str)` which replaces any character that is not a valid ISO 8601 character with an empty string. After cleaning, it attempts to parse the cleaned string again, and if successful, returns the cleaned string; otherwise, it returns `None` to indicate an invalid format.
