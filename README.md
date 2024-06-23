@@ -12,7 +12,12 @@ Make sure you have Python 3.11.4 installed on your system. You can download Pyth
 
 ### Third-Party Modules
 
-Before running the script, you need to install the required third-party modules. Open your terminal or command prompt and run the following command:
+Before running the script, you need to install the required third-party modules. These modules are listed in the `requirements.txt` file. Open your terminal or command prompt, navigate to the directory where the `requirements.txt` file is located, and run the following command:
+
+```bash
+pip install -r requirements.txt
+```
+This command will install all the necessary libraries listed in the `requirements.txt` file. If you prefer to install the modules individually, you can install them using the following command:
 
 ```bash
 pip install pandas
