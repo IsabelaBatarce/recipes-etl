@@ -23,9 +23,9 @@ def pipeline():
     df = pd.read_json(os.path.abspath(__file__).replace('main.py', 'recipes.json'), lines=True)
     
     # Clean and normalize ISO 8601 duration strings in 'cookTime' and 'prepTime' columns
-    df['cookTime'] = df['cookTime'].apply(clean_duration)
-    df['prepTime'] = df['prepTime'].apply(clean_duration)
-    
+    for c in ['cookTime', 'prepTime']:
+        df[c] = df[c].apply(clean_duration)
+
     # Calculate the sum of 'cookTime' and 'prepTime' to get 'totalTime'
     df['totalTime'] = df['cookTime'] + df['prepTime']
     
@@ -69,15 +69,13 @@ def clean_duration(duration_str):
     """
     try:
         # Parse the duration string to check for validity
-        pd.Timedelta(duration_str)
-        return duration_str  # Return the input string if it's already in valid format
+        return pd.to_timedelta(duration_str)  # Return the input string if it's already in valid format
     except ValueError:
         # Clean up the string by removing any non-ISO-8601 characters
         cleaned_str = re.sub(r'[^PYMDTHS\d]', '', duration_str)
         try:
             # Try parsing the cleaned string
-            pd.Timedelta(cleaned_str)
-            return cleaned_str  # Return the cleaned string if it's valid after cleaning
+            return pd.to_timedelta(cleaned_str)  # Return the cleaned string if it's valid after cleaning
         except ValueError:
             return None  # Return None for invalid format
 
