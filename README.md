@@ -12,7 +12,7 @@ Make sure you have Python 3.11.4 installed on your system. You can download Pyth
 
 ### Third-Party Modules
 
-Before running the script, you need to install the required third-party modules. These modules are listed in the `requirements.txt` file. Open your terminal or command prompt, navigate to the directory where the `requirements.txt` file is located, and run the following command:
+Before running the script, you need to install the required third-party modules, these modules are listed in the `requirements.txt` file. Open your terminal or command prompt, navigate to the directory where the `requirements.txt` file is located, and run the following command:
 
 ```bash
 pip install -r requirements.txt
